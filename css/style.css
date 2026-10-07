@@ -1,4 +1,3 @@
-
 /* Reset */
 
 * {
@@ -12,6 +11,7 @@ body {
     color: #222;
     line-height: 1.6;
     background: #ffffff;
+    overflow-x: hidden;
 }
 
 .container {
@@ -55,171 +55,6 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Hero */
-
-.hero {
-    background: #e8f0fe;
-    padding: 110px 0;
-}
-
-.hero-content {
-    max-width: 1200px;
-}
-
-[data-editable="source"] > p:first-child {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 18px;
-}
-
-.hero h1 {
-    max-width: 850px;
-    font-size: 58px;
-    line-height: 1.08;
-    letter-spacing: -2px;
-    margin-bottom: 25px;
-}
-
-[data-key="hero-text"] > p:last-child {
-    max-width: 700px;
-    font-size: 19px;
-    color: #555;
-    margin-bottom: 35px;
-}
-
-/* Buttons */
-
-.button {
-    display: inline-block;
-    padding: 13px 25px;
-    background: #111;
-    color: #0b57d0;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 4px;
-}
-
-.button:hover {
-    background: #333;
-}
-
-.button-light {
-    background: #fff;
-    color: #111;
-}
-
-/* Sections */
-
-.section {
-    padding: 90px 0;
-}
-
-.section h2 {
-    max-width: 750px;
-    font-size: 40px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-[data-key="intro"] > p:last-child {
-    max-width: 700px;
-    color: #555;
-    font-size: 18px;
-}
-
-/* Cards */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 50px;
-}
-
-.card {
-    padding: 30px;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-}
-
-.card h3 {
-    margin-bottom: 12px;
-    font-size: 22px;
-}
-
-.card p {
-    color: #555;
-}
-
-/* CTA */
-
-.cta {
-    background: #111;
-    color: #fff;
-    padding: 80px 0;
-}
-
-.cta h2 {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.cta p {
-    color: #ccc;
-    margin-bottom: 30px;
-}
-
-/* About Page */
-
-.page-hero {
-    background: #f5f5f5;
-    padding: 90px 0;
-}
-
-.page-hero h1 {
-    font-size: 56px;
-    margin-bottom: 15px;
-}
-
-.page-hero p {
-    color: #555;
-    font-size: 18px;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 70px;
-}
-
-.about-content h2 {
-    margin-bottom: 25px;
-}
-
-.about-content p {
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.info-box {
-    background: #f5f5f5;
-    padding: 30px;
-    border-radius: 8px;
-}
-
-.info-box h3 {
-    margin-bottom: 20px;
-}
-
-.info-box ul {
-    padding-left: 20px;
-}
-
-.info-box li {
-    margin-bottom: 10px;
-}
-
 /* Footer */
 
 .footer {
@@ -229,50 +64,378 @@ nav a:hover {
     font-size: 14px;
 }
 
+/* ------------------------------------------------------------------
+   Page content coming from Ghost  (<main class="gh-content">)
+
+   Ghost sends the page body as plain HTML. Headings, paragraphs and
+   "cards" (header, image, callout, button, video, embed ...) arrive
+   with standard class names starting with "kg-". We style them here.
+   ------------------------------------------------------------------ */
+
+.gh-content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 0 90px;
+}
+
+/* Everything takes the full row, except callout cards (3 per row) */
+.gh-content > * {
+    grid-column: 1 / -1;
+}
+
+.gh-content > .kg-callout-card {
+    grid-column: auto;
+}
+
+.loading {
+    color: #777;
+}
+
+.error-box {
+    padding: 30px;
+    border: 1px solid #f0b4b4;
+    background: #fff4f4;
+    border-radius: 8px;
+}
+
+.error-box h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Text */
+
+.gh-content h2 {
+    max-width: 750px;
+    font-size: 40px;
+    line-height: 1.2;
+    margin: 0 0 20px;
+}
+
+.gh-content h3 {
+    font-size: 24px;
+    margin: 30px 0 15px;
+}
+
+.gh-content p {
+    max-width: 750px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.gh-content ul,
+.gh-content ol {
+    max-width: 750px;
+    padding-left: 22px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.gh-content li {
+    margin-bottom: 8px;
+}
+
+.gh-content a {
+    color: #0b57d0;
+}
+
+/* Full-width cards break out of the centred column */
+.gh-content .kg-width-full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+
+/* Header card  (hero and call-to-action bands) */
+
+.kg-header-card {
+    margin-top: -70px;      /* sit directly under the site header */
+    margin-bottom: 60px;
+    padding: 100px 5%;
+    background: #e8f0fe;
+    color: #111;
+}
+
+.gh-content > .kg-header-card ~ .kg-header-card {
+    margin-top: 60px;
+    margin-bottom: -90px;   /* sit directly above the footer */
+}
+
+.kg-header-card-content,
+.kg-header-card > div {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.kg-header-card-text {
+    max-width: 850px;
+}
+
+.kg-header-card .kg-align-center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.kg-header-card h2,
+.kg-header-card .kg-header-card-heading,
+.kg-header-card .kg-header-card-header {
+    max-width: 850px;
+    font-size: 56px;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+}
+
+.kg-header-card .kg-align-center h2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kg-header-card h3,
+.kg-header-card p,
+.kg-header-card .kg-header-card-subheading,
+.kg-header-card .kg-header-card-subheader {
+    max-width: 700px;
+    margin: 0 0 32px;
+    font-size: 19px;
+    font-weight: 400;
+    color: inherit;
+    opacity: 0.8;
+}
+
+.kg-header-card .kg-align-center p,
+.kg-header-card .kg-align-center h3 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kg-header-card-button,
+.kg-header-card a.kg-header-card-button {
+    display: inline-block;
+    padding: 13px 25px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.kg-header-card-button:hover {
+    background: #333;
+}
+
+/* Header card colour choices */
+
+.kg-header-card.kg-style-dark {
+    background: #111;
+    color: #fff;
+}
+
+.kg-header-card.kg-style-dark .kg-header-card-button {
+    background: #fff;
+    color: #111;
+}
+
+.kg-header-card.kg-style-light {
+    background: #f5f5f5;
+}
+
+.kg-header-card.kg-style-accent {
+    background: #0b57d0;
+    color: #fff;
+}
+
+.kg-header-card.kg-style-accent .kg-header-card-button {
+    background: #fff;
+    color: #0b57d0;
+}
+
+.kg-header-card.kg-style-image {
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+/* Button card */
+
+.kg-button-card {
+    margin: 10px 0 30px;
+}
+
+.kg-button-card.kg-align-center {
+    text-align: center;
+}
+
+.kg-btn,
+.kg-button-card a.kg-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.kg-btn:hover {
+    background: #333;
+}
+
+/* Callout card  (used as the three feature "cards") */
+
+.kg-callout-card {
+    margin: 25px 0 0;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+}
+
+.kg-callout-emoji {
+    display: none;
+}
+
+.kg-callout-text {
+    font-size: 17px;
+    color: #555;
+}
+
+.kg-callout-text strong,
+.kg-callout-text b {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #222;
+}
+
+/* Image card */
+
+.kg-image-card,
+.kg-gallery-card,
+.kg-video-card,
+.kg-embed-card {
+    margin: 0 0 40px;
+}
+
+.kg-image-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.kg-image-card:not(.kg-width-wide):not(.kg-width-full) img {
+    width: 100%;
+    max-width: 520px;
+}
+
+.kg-card figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Gallery card */
+
+.kg-gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kg-gallery-row {
+    display: flex;
+    gap: 10px;
+}
+
+.kg-gallery-image {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.kg-gallery-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Video and embeds (YouTube / Vimeo) */
+
+/* normal width = a comfortable size; "wide" and "full" choices in Ghost use the whole row */
+.kg-embed-card:not(.kg-width-wide):not(.kg-width-full),
+.kg-video-card:not(.kg-width-wide):not(.kg-width-full) {
+    max-width: 800px;
+}
+
+.kg-video-card video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background: #000;
+}
+
+/* Hide Ghost's custom player overlay, the browser's own controls are used */
+.kg-video-card .kg-video-overlay,
+.kg-video-card .kg-video-player-container {
+    display: none;
+}
+
+.kg-embed-card iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 8px;
+}
+
+/* Divider */
+
+.gh-content hr {
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    margin: 40px 0;
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
 
-    .hero {
-        padding: 70px 0;
+    .gh-content {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 50px;
     }
 
-    .hero h1 {
-        font-size: 42px;
+    .gh-content > .kg-callout-card {
+        grid-column: 1 / -1;
     }
 
-    .section h2 {
+    .gh-content h2 {
         font-size: 32px;
     }
 
-    .cards {
-        grid-template-columns: 1fr;
+    .kg-header-card {
+        margin-top: -50px;
+        padding: 70px 5%;
     }
 
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .page-hero h1 {
-        font-size: 42px;
+    .kg-header-card h2,
+    .kg-header-card .kg-header-card-heading,
+    .kg-header-card .kg-header-card-header {
+        font-size: 40px;
     }
 
     nav {
         gap: 15px;
     }
-}
-
-/* Image block */
-
-.image-section {
-    padding-bottom: 0;
-}
-
-.image-block img {
-    display: block;
-    max-width: 100%;
-    width: 480px;
-    height: auto;
-    border-radius: 8px;
 }
