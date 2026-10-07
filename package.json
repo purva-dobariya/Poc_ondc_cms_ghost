@@ -1,0 +1,51 @@
+{
+  "name": "ondc-poc",
+  "description": "ONDC CMS proof-of-concept theme",
+  "version": "1.0.4",
+  "license": "MIT",
+  "author": {
+    "name": "ONDC CMS POC",
+    "email": "cms-poc@example.org"
+  },
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "config": {
+    "posts_per_page": 10,
+    "card_assets": false,
+    "image_sizes": {
+      "xs": { "width": 150 },
+      "s": { "width": 300 },
+      "m": { "width": 600 },
+      "l": { "width": 1000 },
+      "xl": { "width": 2000 }
+    },
+    "custom": {
+      "logo_text": {
+        "type": "text",
+        "default": "ONDC",
+        "description": "Text shown as the logo in the header"
+      },
+      "footer_text": {
+        "type": "text",
+        "default": "© 2026 ONDC CMS POC",
+        "description": "Text shown in the footer"
+      },
+      "button_color": {
+        "type": "color",
+        "default": "#111111",
+        "description": "Background colour of buttons"
+      },
+      "hero_background": {
+        "type": "color",
+        "default": "#e8f0fe",
+        "description": "Default background colour of the top banner (Header card)"
+      },
+      "link_color": {
+        "type": "color",
+        "default": "#0b57d0",
+        "description": "Colour of links inside page text"
+      }
+    }
+  }
+}

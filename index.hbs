@@ -1,0 +1,12 @@
+{{!< default}}
+
+{{!-- The website's home page is the Ghost Page whose URL slug is "home" --}}
+<main class="gh-content">
+    {{#get "pages" filter="slug:home" limit="1"}}
+        {{#foreach pages}}
+            {{content}}
+        {{else}}
+            <p>Create a Page in Ghost with the URL slug "home" and publish it.</p>
+        {{/foreach}}
+    {{/get}}
+</main>

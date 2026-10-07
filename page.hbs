@@ -1,0 +1,17 @@
+{{!< default}}
+
+{{!-- Every Ghost Page uses this template --}}
+{{#page}}
+<main class="gh-content">
+    {{#if show_title_and_feature_image}}
+        <h1 class="page-title">{{title}}</h1>
+        {{#if feature_image}}
+        <figure class="kg-card kg-image-card kg-width-wide">
+            <img src="{{feature_image}}" alt="{{title}}">
+        </figure>
+        {{/if}}
+    {{/if}}
+
+    {{content}}
+</main>
+{{/page}}
